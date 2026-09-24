@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, Send, CheckCircle2, PhoneCall, Mail, AlertCircle } from 'lucide-react';
 import { SOLUTIONS_DATA } from '../../data/solutionsData';
+import { LuminaLogoMark } from '../common/Logo';
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -76,13 +77,16 @@ export const ContactModal: React.FC<ContactModalProps> = ({
         onClick={(e) => e.stopPropagation()}
       >
         <div className="p-5 sm:p-6 border-b border-slate-100 flex items-center justify-between bg-slate-50/70">
-          <div>
-            <span className="text-[10px] font-bold uppercase tracking-wider text-[#0067D9]">
-              Technical Consultation Request
-            </span>
-            <h3 className="text-lg sm:text-xl font-extrabold text-[#073B8F] mt-0.5">
-              Talk to Lumina 360
-            </h3>
+          <div className="flex items-center gap-3">
+            <LuminaLogoMark size={36} animated={true} glow={true} />
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-[#0067D9]">
+                Technical Consultation Request
+              </span>
+              <h3 className="text-lg sm:text-xl font-extrabold text-[#072B6B] mt-0.5">
+                Talk to Lumina 360
+              </h3>
+            </div>
           </div>
           <button
             onClick={onClose}

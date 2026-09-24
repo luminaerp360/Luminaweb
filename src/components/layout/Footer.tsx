@@ -35,10 +35,10 @@ export const Footer: React.FC<FooterProps> = ({
           <div className="lg:col-span-4 space-y-4">
             <button
               onClick={() => onNavigate('home')}
-              className="focus:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-lg p-1 text-left"
+              className="focus:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-xl p-1 text-left inline-block transition-transform hover:scale-102"
               aria-label="Lumina 360"
             >
-              <LuminaLogo variant="light" size="sm" />
+              <LuminaLogo variant="light" size="md" animated={true} />
             </button>
             <p className="text-xs sm:text-sm text-blue-100/80 leading-relaxed max-w-sm">
               Lumina 360 is an enterprise technology partner engineering custom business systems, digital commerce engines, enterprise CCTV surveillance, and high-density networking infrastructures.

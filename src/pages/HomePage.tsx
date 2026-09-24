@@ -22,6 +22,8 @@ import {
 } from 'lucide-react';
 import { SOLUTIONS_DATA } from '../data/solutionsData';
 import { AnimatedPatternBg } from '../components/common/AnimatedPatternBg';
+import { LuminaLogoMark, LuminaLogo } from '../components/common/Logo';
+import { BrandLogoShowcase } from '../components/home/BrandLogoShowcase';
 
 interface HomePageProps {
   onNavigate: (page: string) => void;
@@ -163,17 +165,17 @@ export const HomePage: React.FC<HomePageProps> = ({
             {/* Left Column: Direct, Simple & Punchy Content */}
             <div className="lg:col-span-6 space-y-5 text-center lg:text-left">
               
-              {/* Logo Colors Pill */}
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border-2 border-blue-200 shadow-2xs text-xs font-black">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#FFD21C] shadow-[0_0_8px_#FFD21C]" />
+              {/* Logo Colors Pill with Animated 3D Code Bulb Mark */}
+              <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-xs border-2 border-blue-200/90 shadow-2xs text-xs font-black hover:border-[#0067D9] transition-all group">
+                <LuminaLogoMark size={24} animated={true} glow={true} />
                 <span className="text-[#0067D9]">🇰🇪 Built for Kenyan Businesses</span>
                 <span className="text-slate-300">·</span>
-                <span className="text-[#073B8F]">Lumina 360</span>
+                <span className="text-[#072B6B]">Lumina 360</span>
               </div>
 
-              {/* Bold Clear Headline */}
-              <h1 className="text-3xl sm:text-5xl lg:text-5xl font-black text-[#073B8F] tracking-tight leading-[1.15]">
-                Smart <span className="text-[#0067D9]">POS & ERP Systems</span> for Kenyan Businesses.
+              {/* Bold Clear Headline with Logo Colors */}
+              <h1 className="text-3xl sm:text-5xl lg:text-5xl font-black text-[#072B6B] tracking-tight leading-[1.15]">
+                Smart <span className="text-gradient-brand">POS & ERP Systems</span> for Kenyan Businesses.
               </h1>
 
               {/* Simple and direct copy */}
@@ -185,23 +187,23 @@ export const HomePage: React.FC<HomePageProps> = ({
               <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
                 <button
                   onClick={() => onNavigate('pos-erp')}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#0067D9] hover:bg-[#073B8F] text-white font-black px-7 py-3.5 rounded-xl shadow-md hover:shadow-lg transition-all cursor-pointer text-xs sm:text-sm"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#0067D9] hover:bg-[#072B6B] text-white font-black px-7 py-3.5 rounded-xl shadow-md hover:shadow-lg transition-all btn-interactive cursor-pointer text-xs sm:text-sm"
                 >
-                  <Store className="w-4 h-4 text-[#FFD21C]" />
+                  <Store className="w-4 h-4 text-[#FFC700]" />
                   <span>Explore POS & ERP Systems</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
 
                 <button
                   onClick={() => onOpenContactModal('POS & Business ERP Systems')}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#FFD21C] hover:bg-yellow-400 text-slate-950 font-black px-6 py-3.5 rounded-xl shadow-xs transition-all cursor-pointer text-xs sm:text-sm"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#FFC700] hover:bg-yellow-400 text-slate-950 font-black px-6 py-3.5 rounded-xl shadow-xs transition-all btn-interactive cursor-pointer text-xs sm:text-sm"
                 >
                   <PhoneCall className="w-4 h-4" />
                   <span>Get Free Quote</span>
                 </button>
               </div>
 
-              {/* Direct Value Badges (Offline-first removed) */}
+              {/* Direct Value Badges in Brand Logo Colors */}
               <div className="pt-3 border-t border-slate-200 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs font-bold text-slate-700">
                 <span className="flex items-center gap-1.5">
                   <Check className="w-4 h-4 text-[#0067D9] font-black" /> M-Pesa STK Push
@@ -210,17 +212,43 @@ export const HomePage: React.FC<HomePageProps> = ({
                   <Check className="w-4 h-4 text-emerald-600 font-black" /> On-Site Installation
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <Check className="w-4 h-4 text-[#F43D78] font-black" /> 12 Months Warranty
+                  <Check className="w-4 h-4 text-[#FF2D78] font-black" /> 12 Months Warranty
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <Check className="w-4 h-4 text-[#7D3FB2] font-black" /> Multi-Store Sync
+                  <Check className="w-4 h-4 text-[#38BDF8] font-black" /> Multi-Store Sync
                 </span>
               </div>
 
             </div>
 
-            {/* Right Column: Moving Images Slideshow Showcase */}
-            <div className="lg:col-span-6">
+            {/* Right Column: Moving Images Slideshow Showcase with Floating 3D Emblem */}
+            <div className="lg:col-span-6 relative">
+              
+              {/* Floating Lumina 360 3D Emblem with Orbit Animation */}
+              <div 
+                onClick={() => onNavigate('pos-erp')}
+                className="absolute -top-5 -right-2 sm:-top-6 sm:-right-4 z-20 bg-white/95 backdrop-blur-md p-2.5 sm:p-3 rounded-2xl border-2 border-amber-300 shadow-2xl flex items-center gap-2.5 animate-float-slow group/emblem cursor-pointer hover:scale-105 transition-all"
+                title="Lumina 360 Engineering Architecture"
+              >
+                <div className="relative">
+                  {/* Orbit spin rings around the 3D code-bulb mark */}
+                  <div className="absolute -inset-2 rounded-full border border-dashed border-[#0067D9]/50 animate-orbit-spin pointer-events-none" />
+                  <div className="absolute -inset-3 rounded-full border border-dotted border-[#FF2D78]/40 animate-orbit-reverse pointer-events-none" />
+                  <LuminaLogoMark size={42} animated={true} glow={true} />
+                </div>
+                <div className="pr-1 text-left">
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="text-[10px] font-black uppercase tracking-wider text-[#0067D9]">
+                      Lumina 360 Core
+                    </span>
+                  </div>
+                  <div className="text-xs font-black text-[#072B6B]">
+                    3D Code & Hardware
+                  </div>
+                </div>
+              </div>
+
               <div 
                 className="relative mx-auto max-w-lg lg:max-w-none"
                 onMouseEnter={() => setIsPaused(true)}
@@ -383,6 +411,12 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
+      {/* BRAND INNOVATION & 3D LOGO ARCHITECTURE SHOWCASE */}
+      <BrandLogoShowcase 
+        onNavigate={onNavigate} 
+        onOpenContactModal={onOpenContactModal} 
+      />
+
       {/* 3. INDEPENDENT PORTALS: 4 Big Colorful Cards */}
       <section className="animate-section-3 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-10">
@@ -532,8 +566,8 @@ export const HomePage: React.FC<HomePageProps> = ({
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7 space-y-4">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 text-[#FFD21C] text-xs font-bold uppercase tracking-wider">
-                <Sparkles className="w-3.5 h-3.5" />
+              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-xs text-[#FFC700] text-xs font-black uppercase tracking-wider border border-white/20">
+                <LuminaLogoMark size={20} animated={true} glow={true} />
                 <span>The Lumina 360 Guarantee</span>
               </span>
               <h2 className="text-2xl sm:text-4xl font-black text-white leading-tight">

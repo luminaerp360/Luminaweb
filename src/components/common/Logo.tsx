@@ -1,138 +1,51 @@
 import React from 'react';
 
-interface LogoProps {
+export interface LogoProps {
   className?: string;
   iconOnly?: boolean;
   variant?: 'dark' | 'light';
-  size?: 'sm' | 'md' | 'lg' | 'xl';
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  animated?: boolean;
 }
 
-export const LuminaLogoMark: React.FC<{ size?: number; className?: string }> = ({
-  size = 40,
+export const LuminaLogoMark: React.FC<{
+  size?: number | string;
+  className?: string;
+  glow?: boolean;
+  animated?: boolean;
+}> = ({
+  size = 42,
   className = '',
+  glow = true,
+  animated = false,
 }) => {
+  const pixelSize = typeof size === 'number' ? `${size}px` : size;
+
   return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 160 140"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={`shrink-0 overflow-visible ${className}`}
-      aria-label="Lumina 360 Logo Mark"
+    <div
+      className={`relative inline-flex items-center justify-center shrink-0 select-none group/logo ${className}`}
+      style={{ width: pixelSize, height: pixelSize }}
     >
-      <defs>
-        {/* Bulb radiant yellow gradient */}
-        <radialGradient
-          id="bulbGlow"
-          cx="45%"
-          cy="38%"
-          r="58%"
-          fx="40%"
-          fy="32%"
-        >
-          <stop offset="0%" stopColor="#FFFCE5" />
-          <stop offset="35%" stopColor="#FFE84D" />
-          <stop offset="70%" stopColor="#FFD21C" />
-          <stop offset="100%" stopColor="#F5A623" />
-        </radialGradient>
-
-        {/* Ray yellow */}
-        <linearGradient id="rayGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#FFE74C" />
-          <stop offset="100%" stopColor="#FFC700" />
-        </linearGradient>
-
-        {/* Orbit ring gradient */}
-        <linearGradient id="orbitFront" x1="0%" y1="30%" x2="100%" y2="70%">
-          <stop offset="0%" stopColor="#389BFF" />
-          <stop offset="45%" stopColor="#0067D9" />
-          <stop offset="100%" stopColor="#073B8F" />
-        </linearGradient>
-
-        {/* Orbit highlight line */}
-        <linearGradient id="orbitHighlight" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#99CEFF" stopOpacity="0.9" />
-          <stop offset="50%" stopColor="#FFFFFF" stopOpacity="0.9" />
-          <stop offset="100%" stopColor="#389BFF" stopOpacity="0.4" />
-        </linearGradient>
-
-        {/* Blue bulb screw base gradient */}
-        <linearGradient id="baseBlue" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#0067D9" />
-          <stop offset="50%" stopColor="#073B8F" />
-          <stop offset="100%" stopColor="#05265E" />
-        </linearGradient>
-
-        {/* Soft shadow */}
-        <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
-          <feDropShadow dx="0" dy="4" stdDeviation="6" floodColor="#FFD21C" floodOpacity="0.35" />
-        </filter>
-      </defs>
-
-      {/* Orbit Back Arc (passes behind bulb) */}
-      <path
-        d="M32 94 C26 78 40 54 86 44 C112 38 128 46 130 52"
-        stroke="#0067D9"
-        strokeWidth="5"
-        strokeLinecap="round"
-        strokeOpacity="0.25"
-      />
-
-      {/* Radiant Light Rays around top left */}
-      <line x1="28" y1="26" x2="38" y2="34" stroke="url(#rayGrad)" strokeWidth="4.5" strokeLinecap="round" />
-      <line x1="49" y1="12" x2="52" y2="23" stroke="url(#rayGrad)" strokeWidth="4.5" strokeLinecap="round" />
-      <line x1="77" y1="11" x2="72" y2="22" stroke="url(#rayGrad)" strokeWidth="4.5" strokeLinecap="round" />
-
-      {/* Bulb Glass Body */}
-      <g filter="url(#softGlow)">
-        {/* Main spherical & conical bulb shape */}
-        <path
-          d="M44 68 C34 58 32 42 42 28 C52 14 74 14 84 28 C94 42 92 58 82 68 C78 73 76 80 75 87 L51 87 C50 80 48 73 44 68 Z"
-          fill="url(#bulbGlow)"
+      {/* Ambient Radial Glow using official brand yellow & blue */}
+      {glow && (
+        <div
+          className={`absolute -inset-1.5 bg-gradient-to-tr from-[#0067D9]/25 via-[#FFD21C]/35 to-[#FF2D78]/20 rounded-full blur-md opacity-60 group-hover/logo:opacity-100 transition-opacity duration-300 pointer-events-none ${
+            animated ? 'animate-pulse' : ''
+          }`}
+          aria-hidden="true"
         />
-      </g>
+      )}
 
-      {/* Bulb internal glowing filament marks */}
-      <ellipse cx="56" cy="46" rx="2.5" ry="5" transform="rotate(-15 56 46)" fill="#FFFFFF" fillOpacity="0.75" />
-      <ellipse cx="64" cy="42" rx="2.5" ry="5" fill="#FFFFFF" fillOpacity="0.9" />
-      <ellipse cx="71" cy="46" rx="2.5" ry="5" transform="rotate(15 71 46)" fill="#FFFFFF" fillOpacity="0.75" />
-      {/* Specular shine on bulb upper left */}
-      <path
-        d="M46 32 C48 24 57 19 66 19 C64 22 55 24 50 34 C47 40 47 46 47 46 C45 42 44 37 46 32 Z"
-        fill="#FFFFFF"
-        fillOpacity="0.65"
+      {/* 3D Code Bulb Logo Image */}
+      <img
+        src="/lumina-icon.png"
+        alt="Lumina 360 Logo Mark"
+        className={`relative w-full h-full object-contain filter drop-shadow-[0_4px_12px_rgba(0,103,217,0.18)] transition-transform duration-300 ease-out group-hover/logo:scale-110 ${
+          animated ? 'animate-float-slow' : ''
+        }`}
+        loading="eager"
       />
-
-      {/* Orbit Front Swoosh Loop (wraps in front of bulb base) */}
-      <path
-        d="M20 90 C15 74 38 68 76 68 C115 68 142 82 135 96 C129 108 98 114 56 112 C32 110 21 100 20 90 Z"
-        fill="none"
-        stroke="url(#orbitFront)"
-        strokeWidth="11"
-        strokeLinecap="round"
-      />
-      {/* Sleek outer rim arc */}
-      <path
-        d="M24 88 C34 78 74 74 108 78 C130 81 138 90 134 98 C126 109 95 116 54 113"
-        fill="none"
-        stroke="url(#orbitHighlight)"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-      />
-
-      {/* Bulb Ribbed Screw Base (Layered Blue Base) */}
-      <g>
-        {/* Tier 1 - Top ring */}
-        <rect x="52" y="88" width="22" height="6.5" rx="3" fill="url(#baseBlue)" />
-        {/* Tier 2 - Middle ring */}
-        <rect x="53.5" y="96" width="19" height="6.5" rx="3" fill="url(#baseBlue)" />
-        {/* Tier 3 - Lower ring */}
-        <rect x="56" y="104" width="14" height="6" rx="3" fill="url(#baseBlue)" />
-        {/* Bottom contact tip */}
-        <ellipse cx="63" cy="112.5" rx="4.5" ry="2.5" fill="#073B8F" />
-      </g>
-    </svg>
+    </div>
   );
 };
 
@@ -141,47 +54,75 @@ export const LuminaLogo: React.FC<LogoProps> = ({
   iconOnly = false,
   variant = 'dark',
   size = 'md',
+  animated = false,
 }) => {
-  const iconSizes = {
-    sm: 32,
-    md: 42,
-    lg: 52,
-    xl: 64,
+  const iconPixelSizes = {
+    xs: 26,
+    sm: 36,
+    md: 44,
+    lg: 54,
+    xl: 68,
+  };
+
+  const fullHeights = {
+    xs: 'h-6',
+    sm: 'h-9',
+    md: 'h-11',
+    lg: 'h-14',
+    xl: 'h-18',
   };
 
   const textSizes = {
+    xs: 'text-lg',
     sm: 'text-xl',
     md: 'text-2xl',
     lg: 'text-3xl',
     xl: 'text-4xl',
   };
 
-  const currentIconSize = iconSizes[size];
+  const currentIconSize = iconPixelSizes[size];
 
-  return (
-    <div className={`inline-flex items-center gap-2.5 select-none ${className}`}>
-      <LuminaLogoMark size={currentIconSize} />
-      {!iconOnly && (
+  if (iconOnly) {
+    return <LuminaLogoMark size={currentIconSize} animated={animated} className={className} />;
+  }
+
+  // On light navbar and light backgrounds: use authentic full logo graphic with vibrant colors
+  if (variant === 'dark') {
+    return (
+      <div className={`relative inline-flex items-center group/logo select-none ${className}`}>
+        {/* Subtle hover backdrop glow */}
         <div
-          className={`font-extrabold tracking-tight font-heading flex items-baseline ${textSizes[size]}`}
-          style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
-        >
-          {variant === 'light' ? (
-            <>
-              <span className="text-white">Lumin</span>
-              <span className="text-[#F43D78] mx-[0.5px]">a</span>
-              <span className="text-blue-300 ml-1.5 font-black">360</span>
-            </>
-          ) : (
-            <>
-              <span className="text-[#0067D9]">Lumin</span>
-              <span className="text-[#F43D78] mx-[0.5px]">a</span>
-              <span className="text-[#073B8F] ml-1.5 font-black">360</span>
-            </>
-          )}
-        </div>
-      )}
+          className="absolute -inset-1 bg-gradient-to-r from-[#FFD21C]/20 via-[#0067D9]/15 to-[#FF2D78]/15 rounded-xl blur-md opacity-0 group-hover/logo:opacity-100 transition-opacity duration-300 pointer-events-none"
+          aria-hidden="true"
+        />
+        <img
+          src="/lumina-full-logo.png"
+          alt="Lumina 360"
+          className={`${fullHeights[size]} w-auto object-contain filter drop-shadow-[0_2px_8px_rgba(0,103,217,0.12)] transition-all duration-300 group-hover/logo:scale-[1.03] group-hover/logo:brightness-105`}
+          loading="eager"
+        />
+      </div>
+    );
+  }
+
+  // On dark backgrounds (like the footer): glowing 3D bulb mark + high-contrast illuminated brand typography
+  return (
+    <div className={`inline-flex items-center gap-3 select-none group/logo ${className}`}>
+      <LuminaLogoMark size={currentIconSize} animated={animated} glow={true} />
+      <div
+        className={`font-black tracking-tight font-heading flex items-baseline leading-none transition-transform duration-300 group-hover/logo:translate-x-0.5 ${textSizes[size]}`}
+        style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+      >
+        <span className="text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]">Lumin</span>
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF2D78] to-[#FF6B9D] mx-[0.5px]">
+          a
+        </span>
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] to-[#7DD3FC] ml-1.5 font-black drop-shadow-[0_2px_8px_rgba(56,189,248,0.4)]">
+          360
+        </span>
+      </div>
     </div>
   );
 };
+
 export default LuminaLogo;

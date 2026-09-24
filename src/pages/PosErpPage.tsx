@@ -19,6 +19,7 @@ import {
   Users
 } from 'lucide-react';
 import { AnimatedPatternBg } from '../components/common/AnimatedPatternBg';
+import { LuminaLogoMark } from '../components/common/Logo';
 
 interface PosErpPageProps {
   onOpenContactModal: (service?: string) => void;
@@ -45,8 +46,8 @@ export const PosErpPage: React.FC<PosErpPageProps> = ({
         />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/20 text-[#FFD21C] text-xs font-black uppercase tracking-wider mb-4 border border-white/20">
-            <Store className="w-4 h-4 text-[#FFD21C]" />
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-xs text-[#FFC700] text-xs font-black uppercase tracking-wider mb-4 border border-white/20">
+            <LuminaLogoMark size={20} animated={true} glow={true} />
             <span>Dedicated POS & ERP Systems Hub</span>
           </div>
 

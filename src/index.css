@@ -3,12 +3,18 @@
 @layer base {
   :root {
     --color-primary: #0067D9;
-    --color-deep: #073B8F;
-    --color-yellow: #FFD21C;
-    --color-pink: #F43D78;
-    --color-purple: #7D3FB2;
-    --color-charcoal: #171A21;
-    --color-bg: #F5F8FC;
+    --color-primary-dark: #0052B3;
+    --color-deep: #072B6B;
+    --color-navy: #051A44;
+    --color-yellow: #FFC700;
+    --color-yellow-light: #FFF176;
+    --color-pink: #FF2D78;
+    --color-pink-glow: #FF659F;
+    --color-cyan: #38BDF8;
+    --color-cyan-glow: #7DD3FC;
+    --color-purple: #7C3AED;
+    --color-charcoal: #0F172A;
+    --color-bg: #F8FAFC;
   }
 
   body {
@@ -21,6 +27,131 @@
     font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
     letter-spacing: -0.025em;
   }
+}
+
+/* ----------------------------------------------------
+   AUTHENTIC LUMINA 360 LOGO COLOR GRADIENTS & UTILITIES
+   ---------------------------------------------------- */
+.text-gradient-brand {
+  background: linear-gradient(135deg, #0067D9 0%, #072B6B 45%, #FF2D78 85%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-solar {
+  background: linear-gradient(135deg, #FFC700 0%, #FF9500 50%, #FF2D78 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-cyber {
+  background: linear-gradient(135deg, #0067D9 0%, #38BDF8 50%, #FF2D78 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ----------------------------------------------------
+   MODERN BRAND ANIMATIONS: ORBITS, GLOWS, AND FLOATS
+   ---------------------------------------------------- */
+
+/* Orbit rotation for logo rings */
+@keyframes orbitSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbitSpinReverse {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-orbit-spin {
+  animation: orbitSpin 16s linear infinite;
+}
+
+.animate-orbit-spin-slow {
+  animation: orbitSpin 28s linear infinite;
+}
+
+.animate-orbit-reverse {
+  animation: orbitSpinReverse 22s linear infinite;
+}
+
+/* Radiant Lightbulb Glow Breathing */
+@keyframes bulbAuraPulse {
+  0%, 100% {
+    opacity: 0.55;
+    transform: scale(0.96);
+    filter: drop-shadow(0 0 16px rgba(255, 199, 0, 0.45));
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 32px rgba(255, 199, 0, 0.75)) drop-shadow(0 0 48px rgba(0, 103, 217, 0.35));
+  }
+}
+
+.animate-bulb-aura {
+  animation: bulbAuraPulse 4s ease-in-out infinite;
+}
+
+/* Code Bracket Flash / Sparkle */
+@keyframes codeSparkle {
+  0%, 100% {
+    opacity: 0.9;
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+    filter: brightness(1.25) drop-shadow(0 0 10px #FFC700);
+  }
+}
+
+.animate-code-sparkle {
+  animation: codeSparkle 2.6s ease-in-out infinite;
+}
+
+/* Flowing Dynamic Border Gradient using Logo Colors */
+@keyframes animatedBorderFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-brand-border {
+  background: linear-gradient(90deg, #0067D9, #FFC700, #FF2D78, #38BDF8, #0067D9);
+  background-size: 300% 300%;
+  animation: animatedBorderFlow 6s ease infinite;
+}
+
+/* Subtle Interactive Card Perspective Lift */
+.card-brand-glow {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.card-brand-glow:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 20px 35px -10px rgba(0, 103, 217, 0.15),
+    0 10px 20px -6px rgba(255, 199, 0, 0.1),
+    0 0 0 1px rgba(0, 103, 217, 0.2);
 }
 
 /* Marquee animation for moving images */

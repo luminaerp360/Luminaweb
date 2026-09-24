@@ -84,10 +84,10 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Brand Logo */}
           <button
             onClick={() => handleNavClick('home')}
-            className="flex items-center gap-2 group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0067D9] rounded-lg p-1"
+            className="flex items-center gap-2 group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0067D9] rounded-xl p-1 transition-all"
             aria-label="Lumina 360 Home"
           >
-            <LuminaLogo size="sm" />
+            <LuminaLogo size="md" />
           </button>
 
           {/* Desktop Navigation */}
