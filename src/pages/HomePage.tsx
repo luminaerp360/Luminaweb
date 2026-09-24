@@ -38,17 +38,17 @@ export const HomePage: React.FC<HomePageProps> = ({
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
-  // Moving Hero Slides with verified Kenyan and African business imagery
+  // Moving Hero Slides with authentic Kenyan business imagery
   const heroSlides = [
     {
       id: 0,
       title: 'Kenyan Supermarket & Retail POS',
       subtitle: 'Fast Cashier Ringing & Instant M-Pesa STK',
       badge: '🇰🇪 Nairobi & Countrywide',
-      badgeColor: 'bg-[#FFD21C] text-slate-950 font-black',
-      tagColor: 'text-[#FFD21C]',
+      badgeColor: 'bg-[#FFC700] text-slate-950 font-black',
+      tagColor: 'text-[#FFC700]',
       desc: 'Heavy-duty touchscreen station, thermal receipt printer, barcode reader & automated M-Pesa Till reconciliation.',
-      image: 'https://images.unsplash.com/photo-1607344645866-009c320c5ab8?auto=format&fit=crop&w=1200&q=80',
+      image: '/images/kenyan-supermarket-pos.jpg',
       actionPage: 'pos-erp',
       actionText: 'Explore POS Setup'
     },
@@ -60,7 +60,7 @@ export const HomePage: React.FC<HomePageProps> = ({
       badgeColor: 'bg-[#0067D9] text-white font-bold',
       tagColor: 'text-blue-300',
       desc: 'Digital scale integration recording milk liters, instant farmer SMS weigh slips, and automated milk payout deductions.',
-      image: 'https://images.unsplash.com/photo-1527153857715-3908f2ae5e81?auto=format&fit=crop&w=1200&q=80',
+      image: '/images/kenyan-dairy-erp.jpg',
       actionPage: 'pos-erp',
       actionText: 'View ERP Features'
     },
@@ -69,10 +69,10 @@ export const HomePage: React.FC<HomePageProps> = ({
       title: 'Multi-Store Warehouse & Branch ERP',
       subtitle: 'Live Stock Sync Between Nairobi CBD & Branches',
       badge: 'Multi-Branch Cloud',
-      badgeColor: 'bg-[#F43D78] text-white font-bold',
+      badgeColor: 'bg-[#FF2D78] text-white font-bold',
       tagColor: 'text-pink-300',
       desc: 'Centralized stock ledger, multi-till reconciliation, supervisor PIN overrides & owner mobile monitoring app.',
-      image: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=1200&q=80',
+      image: '/images/kenyan-warehouse-erp.jpg',
       actionPage: 'pos-erp',
       actionText: 'View Branch Sync'
     },
@@ -81,7 +81,7 @@ export const HomePage: React.FC<HomePageProps> = ({
       title: '4K CCTV Security & Office Wi-Fi Networks',
       subtitle: 'Counter Cash Monitoring & Structured Cabling',
       badge: 'Turnkey Installations',
-      badgeColor: 'bg-[#7D3FB2] text-white font-bold',
+      badgeColor: 'bg-[#7C3AED] text-white font-bold',
       tagColor: 'text-purple-300',
       desc: 'Cashier till monitoring, 30-day NVR recording, remote phone live-view & neat Cat6 network cabling.',
       image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80',
@@ -102,31 +102,31 @@ export const HomePage: React.FC<HomePageProps> = ({
   // Moving marquee images data (looping continuously with Kenyan & African commerce images)
   const marqueeItems = [
     {
-      img: 'https://images.unsplash.com/photo-1607344645866-009c320c5ab8?auto=format&fit=crop&w=500&q=80',
+      img: '/images/kenyan-supermarket-pos.jpg',
       name: 'Nairobi Retail Checkout',
       tag: 'Supermarket POS',
       color: 'border-[#0067D9]',
       page: 'pos-erp'
     },
     {
-      img: 'https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=500&q=80',
+      img: '/images/kenyan-supermarket-pos.jpg',
       name: 'M-Pesa STK Push Till',
       tag: 'Instant PIN Prompt',
-      color: 'border-[#FFD21C]',
+      color: 'border-[#FFC700]',
       page: 'pos-erp'
     },
     {
-      img: 'https://images.unsplash.com/photo-1527153857715-3908f2ae5e81?auto=format&fit=crop&w=500&q=80',
-      name: 'Dairy Cooperative ERP',
+      img: '/images/kenyan-dairy-erp.jpg',
+      name: 'Kiambu Dairy Farmers ERP',
       tag: 'Milk Digital Scale',
-      color: 'border-[#073B8F]',
+      color: 'border-[#072B6B]',
       page: 'pos-erp'
     },
     {
-      img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500&q=80',
-      name: 'Business Owner App',
-      tag: 'Live Phone Sales',
-      color: 'border-[#F43D78]',
+      img: '/images/kenyan-warehouse-erp.jpg',
+      name: 'Nairobi Logistics Depot',
+      tag: 'Multi-Branch Cloud',
+      color: 'border-[#FF2D78]',
       page: 'pos-erp'
     },
     {
@@ -137,10 +137,10 @@ export const HomePage: React.FC<HomePageProps> = ({
       page: 'solutions'
     },
     {
-      img: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=500&q=80',
-      name: 'Enterprise Wi-Fi & Cat6',
+      img: '/images/kenyan-warehouse-erp.jpg',
+      name: 'Enterprise Wi-Fi & Stock Sync',
       tag: 'Branch Network',
-      color: 'border-[#7D3FB2]',
+      color: 'border-[#7C3AED]',
       page: 'solutions'
     }
   ];
@@ -442,8 +442,8 @@ export const HomePage: React.FC<HomePageProps> = ({
             <div>
               <div className="relative h-36 w-full rounded-xl overflow-hidden mb-4 bg-blue-50">
                 <img 
-                  src="https://images.unsplash.com/photo-1607344645866-009c320c5ab8?auto=format&fit=crop&w=600&q=80" 
-                  alt="POS Terminal Counter" 
+                  src="/images/kenyan-supermarket-pos.jpg" 
+                  alt="POS Terminal Counter in Nairobi Supermarket" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                 />
                 <span className="absolute top-2 left-2 bg-[#0067D9] text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded shadow-xs">
@@ -466,27 +466,27 @@ export const HomePage: React.FC<HomePageProps> = ({
           {/* Card 2: All Solutions */}
           <div 
             onClick={() => onNavigate('solutions')}
-            className="group bg-white rounded-2xl border-2 border-[#F43D78] card-hover-effect p-5 cursor-pointer flex flex-col justify-between"
+            className="group bg-white rounded-2xl border-2 border-[#FF2D78] card-hover-effect p-5 cursor-pointer flex flex-col justify-between"
           >
             <div>
               <div className="relative h-36 w-full rounded-xl overflow-hidden mb-4 bg-pink-50">
                 <img 
-                  src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=600&q=80" 
-                  alt="E-Commerce & Digital" 
+                  src="/images/kenyan-warehouse-erp.jpg" 
+                  alt="E-Commerce, Cloud & Warehouse Distribution in Nairobi" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                 />
-                <span className="absolute top-2 left-2 bg-[#F43D78] text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded shadow-xs">
+                <span className="absolute top-2 left-2 bg-[#FF2D78] text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded shadow-xs">
                   6 SOLUTIONS
                 </span>
               </div>
-              <h3 className="font-extrabold text-base text-slate-900 group-hover:text-[#F43D78] transition-colors">
+              <h3 className="font-extrabold text-base text-slate-900 group-hover:text-[#FF2D78] transition-colors">
                 Solutions & Services
               </h3>
               <p className="text-xs text-slate-600 mt-1 leading-relaxed">
                 Web design, online stores, CCTV security, office Wi-Fi, and CRM pipelines.
               </p>
             </div>
-            <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#F43D78]">
+            <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#FF2D78]">
               <span>View Solutions</span>
               <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>
@@ -495,16 +495,16 @@ export const HomePage: React.FC<HomePageProps> = ({
           {/* Card 3: Industries */}
           <div 
             onClick={() => onNavigate('industries')}
-            className="group bg-white rounded-2xl border-2 border-[#7D3FB2] card-hover-effect p-5 cursor-pointer flex flex-col justify-between"
+            className="group bg-white rounded-2xl border-2 border-[#7C3AED] card-hover-effect p-5 cursor-pointer flex flex-col justify-between"
           >
             <div>
               <div className="relative h-36 w-full rounded-xl overflow-hidden mb-4 bg-purple-50">
                 <img 
-                  src="https://images.unsplash.com/photo-1527153857715-3908f2ae5e81?auto=format&fit=crop&w=600&q=80" 
-                  alt="Industries" 
+                  src="/images/kenyan-dairy-erp.jpg" 
+                  alt="Kiambu Dairy Cooperative Milk Intake" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                 />
-                <span className="absolute top-2 left-2 bg-[#7D3FB2] text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded shadow-xs">
+                <span className="absolute top-2 left-2 bg-[#7C3AED] text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded shadow-xs">
                   VERTICALS
                 </span>
               </div>

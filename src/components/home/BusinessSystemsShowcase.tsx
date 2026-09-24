@@ -156,8 +156,8 @@ export const BusinessSystemsShowcase: React.FC<BusinessSystemsShowcaseProps> = (
               <div className="lg:col-span-6 bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
                 <div className="h-44 w-full bg-slate-100 overflow-hidden">
                   <img 
-                    src="https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=800&q=80" 
-                    alt="POS Terminal" 
+                    src="/images/kenyan-supermarket-pos.jpg" 
+                    alt="Kenyan POS Terminal in Supermarket" 
                     className="w-full h-full object-cover" 
                   />
                 </div>
@@ -222,8 +222,8 @@ export const BusinessSystemsShowcase: React.FC<BusinessSystemsShowcaseProps> = (
               <div className="lg:col-span-6 bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
                 <div className="h-44 w-full bg-slate-100 overflow-hidden">
                   <img 
-                    src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80" 
-                    alt="Warehouse Stock" 
+                    src="/images/kenyan-warehouse-erp.jpg" 
+                    alt="Nairobi Warehouse Stock Logistics" 
                     className="w-full h-full object-cover" 
                   />
                 </div>

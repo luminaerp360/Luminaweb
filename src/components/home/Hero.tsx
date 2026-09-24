@@ -145,7 +145,7 @@ export const Hero: React.FC<HeroProps> = ({
                 {/* Hero Picture Banner */}
                 <div className="relative h-44 sm:h-52 w-full overflow-hidden bg-slate-100">
                   <img
-                    src="https://images.unsplash.com/photo-1607344645866-009c320c5ab8?auto=format&fit=crop&w=800&q=80"
+                    src="/images/kenyan-supermarket-pos.jpg"
                     alt="Lumina 360 Kenyan Point of Sale System & Checkout"
                     className="w-full h-full object-cover"
                     loading="eager"

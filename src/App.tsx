@@ -13,6 +13,7 @@ import { ContactPage } from './pages/ContactPage';
 // Modals
 import { LegalModal } from './components/modals/LegalModal';
 import { ContactModal } from './components/modals/ContactModal';
+import { FloatingWhatsApp } from './components/common/FloatingWhatsApp';
 
 export function App() {
   // Parse initial page from URL hash
@@ -152,6 +153,9 @@ export function App() {
         onClose={() => setIsContactModalOpen(false)}
         defaultService={modalDefaultService}
       />
+
+      {/* Floating WhatsApp Action Widget */}
+      <FloatingWhatsApp />
     </div>
   );
 }

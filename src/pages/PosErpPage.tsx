@@ -98,8 +98,8 @@ export const PosErpPage: React.FC<PosErpPageProps> = ({
           <div className="bg-white rounded-2xl border-2 border-blue-200 overflow-hidden shadow-sm card-hover-effect">
             <div className="h-40 w-full bg-slate-100 overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1607344645866-009c320c5ab8?auto=format&fit=crop&w=600&q=80"
-                alt="Touch POS Terminal"
+                src="/images/kenyan-supermarket-pos.jpg"
+                alt="Kenyan Touchscreen POS Terminal"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -152,8 +152,8 @@ export const PosErpPage: React.FC<PosErpPageProps> = ({
           <div className="bg-white rounded-2xl border-2 border-amber-300 overflow-hidden shadow-sm card-hover-effect">
             <div className="h-40 w-full bg-slate-100 overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&q=80"
-                alt="Cash Drawer & Mobile PDA"
+                src="/images/kenyan-warehouse-erp.jpg"
+                alt="Kenyan Warehouse Mobile PDA & Inventory Scanner"
                 className="w-full h-full object-cover"
               />
             </div>
