@@ -15,10 +15,12 @@ import { AnimatedPatternBg } from '../components/common/AnimatedPatternBg';
 
 interface ContactPageProps {
   initialService?: string;
+  onNavigate?: (pageId: string) => void;
 }
 
 export const ContactPage: React.FC<ContactPageProps> = ({
   initialService = 'POS & Business ERP Systems',
+  onNavigate,
 }) => {
   const [formData, setFormData] = useState({
     name: '',
@@ -33,8 +35,11 @@ export const ContactPage: React.FC<ContactPageProps> = ({
     e.preventDefault();
     if (!formData.name.trim() || !formData.phone.trim()) return;
 
-    // Simulate submission
-    setSubmitted(true);
+    if (onNavigate) {
+      onNavigate('thank-you');
+    } else {
+      setSubmitted(true);
+    }
   };
 
   const whatsappMessage = encodeURIComponent(

@@ -12,6 +12,7 @@ interface ContactModalProps {
     selectedModules: string[];
     note: string;
   } | null;
+  onSuccess?: () => void;
 }
 
 export const ContactModal: React.FC<ContactModalProps> = ({
@@ -19,6 +20,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
   onClose,
   defaultService,
   scopeSummary,
+  onSuccess,
 }) => {
   const [formData, setFormData] = useState({
     name: '',
@@ -67,7 +69,10 @@ export const ContactModal: React.FC<ContactModalProps> = ({
     setTimeout(() => {
       setIsSubmitting(false);
       setIsDone(true);
-    }, 700);
+      if (onSuccess) {
+        onSuccess();
+      }
+    }, 500);
   };
 
   return (

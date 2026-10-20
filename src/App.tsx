@@ -9,6 +9,7 @@ import { PosErpPage } from './pages/PosErpPage';
 import { IndustriesPage } from './pages/IndustriesPage';
 import { PricingPage } from './pages/PricingPage';
 import { ContactPage } from './pages/ContactPage';
+import { ThankYouPage } from './pages/ThankYouPage';
 
 // Modals
 import { LegalModal } from './components/modals/LegalModal';
@@ -41,6 +42,14 @@ const PAGE_META: Record<string, { title: string; path: string }> = {
     title: 'Contact Engineering Team & WhatsApp Consultation | Lumina 360',
     path: '/contact',
   },
+  'thank-you': {
+    title: 'Quote Request Received | Lumina 360 Kenya',
+    path: '/thank-you',
+  },
+  'quote-received': {
+    title: 'Quote Request Received | Lumina 360 Kenya',
+    path: '/thank-you',
+  },
 };
 
 export function App() {
@@ -48,13 +57,15 @@ export function App() {
   const getPageFromUrl = (): string => {
     const pathname = window.location.pathname.replace(/^\/+|\/+$/g, '').trim();
     if (pathname === 'business-systems' || pathname === 'pos-erp') return 'pos-erp';
-    if (['solutions', 'industries', 'pricing', 'contact'].includes(pathname)) {
+    if (pathname === 'quote-received') return 'thank-you';
+    if (['solutions', 'industries', 'pricing', 'contact', 'thank-you'].includes(pathname)) {
       return pathname;
     }
 
     const hash = window.location.hash.replace('#', '').trim();
     if (hash === 'business-systems' || hash === 'pos-erp') return 'pos-erp';
-    if (['solutions', 'pos-erp', 'industries', 'pricing', 'contact'].includes(hash)) {
+    if (hash === 'quote-received') return 'thank-you';
+    if (['solutions', 'pos-erp', 'industries', 'pricing', 'contact', 'thank-you'].includes(hash)) {
       return hash;
     }
     return 'home';
@@ -174,6 +185,14 @@ export function App() {
           {currentPage === 'contact' && (
             <ContactPage
               initialService={modalDefaultService}
+              onNavigate={handleNavigate}
+            />
+          )}
+
+          {/* Page 7: Thank You & Quote Request Conversion Page */}
+          {currentPage === 'thank-you' && (
+            <ThankYouPage
+              onNavigate={handleNavigate}
             />
           )}
         </div>
@@ -196,6 +215,10 @@ export function App() {
         isOpen={isContactModalOpen}
         onClose={() => setIsContactModalOpen(false)}
         defaultService={modalDefaultService}
+        onSuccess={() => {
+          setIsContactModalOpen(false);
+          handleNavigate('thank-you');
+        }}
       />
 
       {/* Floating WhatsApp Action Widget */}
