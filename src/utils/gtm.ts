@@ -8,7 +8,7 @@ declare global {
 }
 
 // Measurement ID can be customized or configured via Vite env
-export const GA4_MEASUREMENT_ID = import.meta.env.VITE_GA4_ID || 'G-XXXXXXXXXX';
+export const GA4_MEASUREMENT_ID = import.meta.env.VITE_GA4_ID || 'G-C9K4PZZQTV';
 
 export function pushToDataLayer(data: Record<string, any>): void {
   if (typeof window === 'undefined') return;
