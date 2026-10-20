@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://www.lumina360.tech/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.lumina360.tech/og-image.jpg</image:loc>
+      <image:title>Lumina 360 - Enterprise Technology and POS ERP Solutions Kenya</image:title>
+    </image:image>
+  </url>
+
+  <!-- POS & ERP Systems -->
+  <url>
+    <loc>https://www.lumina360.tech/pos-erp</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Solutions & Services -->
+  <url>
+    <loc>https://www.lumina360.tech/solutions</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Sectors & Industries -->
+  <url>
+    <loc>https://www.lumina360.tech/industries</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Pricing & Quotations -->
+  <url>
+    <loc>https://www.lumina360.tech/pricing</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Contact & WhatsApp Consultation -->
+  <url>
+    <loc>https://www.lumina360.tech/contact</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>

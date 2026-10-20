@@ -14,19 +14,53 @@ import { ContactPage } from './pages/ContactPage';
 import { LegalModal } from './components/modals/LegalModal';
 import { ContactModal } from './components/modals/ContactModal';
 import { FloatingWhatsApp } from './components/common/FloatingWhatsApp';
+import { trackGTMPageView } from './utils/gtm';
+
+const PAGE_META: Record<string, { title: string; path: string }> = {
+  home: {
+    title: 'Lumina 360 | Enterprise POS & ERP Technology Solutions Kenya',
+    path: '/',
+  },
+  solutions: {
+    title: 'Technology Solutions & Services | Lumina 360 Kenya',
+    path: '/solutions',
+  },
+  'pos-erp': {
+    title: 'Point of Sale (POS) & Business ERP Systems | Lumina 360 Kenya',
+    path: '/pos-erp',
+  },
+  industries: {
+    title: 'Sectors & Industry Solutions | Lumina 360 Kenya',
+    path: '/industries',
+  },
+  pricing: {
+    title: 'Transparent Pricing & Scope Calculator | Lumina 360',
+    path: '/pricing',
+  },
+  contact: {
+    title: 'Contact Engineering Team & WhatsApp Consultation | Lumina 360',
+    path: '/contact',
+  },
+};
 
 export function App() {
-  // Parse initial page from URL hash
-  const getPageFromHash = (): string => {
+  // Parse initial page from URL pathname or hash
+  const getPageFromUrl = (): string => {
+    const pathname = window.location.pathname.replace(/^\/+|\/+$/g, '').trim();
+    if (pathname === 'business-systems' || pathname === 'pos-erp') return 'pos-erp';
+    if (['solutions', 'industries', 'pricing', 'contact'].includes(pathname)) {
+      return pathname;
+    }
+
     const hash = window.location.hash.replace('#', '').trim();
-    if (hash === 'business-systems') return 'pos-erp';
+    if (hash === 'business-systems' || hash === 'pos-erp') return 'pos-erp';
     if (['solutions', 'pos-erp', 'industries', 'pricing', 'contact'].includes(hash)) {
       return hash;
     }
     return 'home';
   };
 
-  const [currentPage, setCurrentPage] = useState<string>(getPageFromHash);
+  const [currentPage, setCurrentPage] = useState<string>(getPageFromUrl);
 
   const [legalDocType, setLegalDocType] = useState<'privacy' | 'terms' | 'cookies' | null>(null);
   const [isLegalModalOpen, setIsLegalModalOpen] = useState(false);
@@ -34,27 +68,37 @@ export function App() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [modalDefaultService, setModalDefaultService] = useState<string>('POS & Business ERP Systems');
 
-  // Handle browser back/forward buttons
+  // Handle browser back/forward buttons (popstate and hashchange)
   useEffect(() => {
-    const handleHashChange = () => {
-      const page = getPageFromHash();
+    const handleUrlChange = () => {
+      const page = getPageFromUrl();
       setCurrentPage(page);
       window.scrollTo({ top: 0, behavior: 'instant' });
     };
 
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    window.addEventListener('popstate', handleUrlChange);
+    window.addEventListener('hashchange', handleUrlChange);
+    return () => {
+      window.removeEventListener('popstate', handleUrlChange);
+      window.removeEventListener('hashchange', handleUrlChange);
+    };
   }, []);
+
+  // Track GTM & GA4 virtual pageviews and dynamically update document titles
+  useEffect(() => {
+    const meta = PAGE_META[currentPage] || PAGE_META.home;
+    document.title = meta.title;
+    trackGTMPageView(meta.path, meta.title);
+  }, [currentPage]);
 
   const handleNavigate = (pageId: string) => {
     const normalized = pageId === 'business-systems' ? 'pos-erp' : pageId;
     setCurrentPage(normalized);
     
-    // Update hash for true multi-page URL support
-    if (normalized === 'home') {
-      history.pushState(null, '', window.location.pathname);
-    } else {
-      window.location.hash = normalized;
+    // Update browser URL cleanly
+    const targetPath = normalized === 'home' ? '/' : `/${normalized}`;
+    if (window.location.pathname !== targetPath) {
+      history.pushState(null, '', targetPath);
     }
 
     // Always scroll to top when changing to an independent page

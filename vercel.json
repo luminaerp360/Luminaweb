@@ -1,9 +1,10 @@
 {
   "framework": "vite",
   "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
+    { "source": "/robots.txt", "destination": "/robots.txt" },
+    { "source": "/sitemap.xml", "destination": "/sitemap.xml" },
+    { "source": "/og-image.jpg", "destination": "/og-image.jpg" },
+    { "source": "/google95fb24925ab2c454.html", "destination": "/google95fb24925ab2c454.html" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

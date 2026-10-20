@@ -1,0 +1,7 @@
+# Robots.txt for Lumina 360
+User-agent: *
+Allow: /
+
+# Host & Sitemap specification
+Host: https://www.lumina360.tech
+Sitemap: https://www.lumina360.tech/sitemap.xml
