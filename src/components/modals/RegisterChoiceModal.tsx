@@ -234,15 +234,6 @@ export const RegisterChoiceModal: React.FC<RegisterChoiceModalProps> = ({
                   <span>Register Lumina ERP (All Businesses)</span>
                   <ExternalLink className="w-3.5 h-3.5 text-[#FFD21C] group-hover:translate-x-0.5 transition-transform" />
                 </a>
-                <div className="text-center mt-1.5 flex items-center justify-center gap-2">
-                  <span className="text-[10px] sm:text-[11px] text-slate-400 font-mono">
-                    erp.lumina360.tech/register
-                  </span>
-                  <span className="text-slate-300 text-xs">·</span>
-                  <span className="text-[10px] sm:text-[11px] text-emerald-600 font-bold">
-                    Instant Setup
-                  </span>
-                </div>
               </div>
             </div>
 
@@ -303,11 +294,6 @@ export const RegisterChoiceModal: React.FC<RegisterChoiceModalProps> = ({
                   <span>Register Bar & Restaurant POS</span>
                   <ExternalLink className="w-3.5 h-3.5 text-[#FFD21C] group-hover:translate-x-0.5 transition-transform" />
                 </a>
-                <div className="text-center mt-1.5">
-                  <span className="text-[10px] sm:text-[11px] text-slate-400 font-mono">
-                    pos.lumina360.tech/auth/register
-                  </span>
-                </div>
               </div>
             </div>
 

@@ -176,9 +176,6 @@ export const PosErpPage: React.FC<PosErpPageProps> = ({
                   <span>Register Lumina ERP (All Businesses)</span>
                   <ExternalLink className="w-4 h-4 text-[#FFD21C] group-hover:translate-x-0.5 transition-transform" />
                 </a>
-                <div className="text-center mt-2 text-[11px] text-slate-400 font-mono">
-                  erp.lumina360.tech/register
-                </div>
               </div>
             </div>
 
@@ -231,9 +228,6 @@ export const PosErpPage: React.FC<PosErpPageProps> = ({
                   <span>Register Bar & Restaurant POS</span>
                   <ExternalLink className="w-4 h-4 text-[#FFD21C] group-hover:translate-x-0.5 transition-transform" />
                 </a>
-                <div className="text-center mt-2 text-[11px] text-slate-400 font-mono">
-                  pos.lumina360.tech/auth/register
-                </div>
               </div>
             </div>
 
