@@ -16,19 +16,28 @@ import {
   Zap,
   Check,
   Building2,
-  Users
+  Users,
+  UtensilsCrossed,
+  ExternalLink
 } from 'lucide-react';
 import { AnimatedPatternBg } from '../components/common/AnimatedPatternBg';
 import { LuminaLogoMark } from '../components/common/Logo';
+import { 
+  POS_BAR_RESTAURANT_URL, 
+  ERP_REGISTRATION_URL, 
+  ERP_BUSINESS_CATEGORIES 
+} from '../data/registrationData';
 
 interface PosErpPageProps {
   onOpenContactModal: (service?: string) => void;
   onNavigate: (page: string) => void;
+  onOpenRegisterModal?: () => void;
 }
 
 export const PosErpPage: React.FC<PosErpPageProps> = ({
   onOpenContactModal,
   onNavigate,
+  onOpenRegisterModal,
 }) => {
   const [activeTab, setActiveTab] = useState<'checkout' | 'inventory' | 'invoicing' | 'security'>('checkout');
 
@@ -60,21 +69,176 @@ export const PosErpPage: React.FC<PosErpPageProps> = ({
           </p>
 
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+            {onOpenRegisterModal && (
+              <button
+                onClick={onOpenRegisterModal}
+                className="inline-flex items-center gap-2 bg-[#FFD21C] hover:bg-yellow-400 text-slate-950 text-xs sm:text-sm font-black px-6 py-3.5 rounded-xl shadow-md transition-all duration-200 btn-interactive cursor-pointer border-2 border-white/40"
+              >
+                <Sparkles className="w-4 h-4 text-slate-950" />
+                <span>Register Your Business Portal</span>
+              </button>
+            )}
             <button
               onClick={() => onOpenContactModal('POS & ERP Hardware Kit')}
-              className="inline-flex items-center gap-2 bg-[#FFD21C] hover:bg-yellow-400 text-slate-950 text-xs sm:text-sm font-black px-6 py-3.5 rounded-xl shadow-md transition-all duration-200 btn-interactive cursor-pointer"
+              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold px-6 py-3.5 rounded-xl border border-white/20 transition-all duration-200 btn-interactive cursor-pointer"
             >
-              <PhoneCall className="w-4 h-4" />
+              <PhoneCall className="w-4 h-4 text-[#FFD21C]" />
               <span>Get POS Kit Quotation</span>
             </button>
             <button
               onClick={() => onNavigate('pricing')}
-              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold px-6 py-3.5 rounded-xl border border-white/20 transition-all duration-200 btn-interactive cursor-pointer"
+              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold px-5 py-3.5 rounded-xl border border-white/20 transition-all duration-200 btn-interactive cursor-pointer"
             >
-              <span>View Packages & Pricing</span>
+              <span>View Packages</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
+        </div>
+      </section>
+
+      {/* DIRECT REGISTRATION PORTALS: Bar & Restaurant POS vs Lumina ERP */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 sm:-mt-10 relative z-20">
+        <div className="bg-white rounded-3xl border-2 border-slate-200 shadow-xl p-6 sm:p-8 lg:p-10">
+          
+          <div className="text-center max-w-3xl mx-auto mb-8">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-xs font-black text-[#0067D9] mb-2">
+              <Sparkles className="w-3.5 h-3.5 text-[#FFD21C]" />
+              <span>Online Setup & Instant Sign Up</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-black text-[#073B8F]">
+              Direct Portal Registration
+            </h2>
+            <p className="mt-1.5 text-xs sm:text-sm text-slate-600">
+              Select your business operation type below to begin instant registration on the dedicated cloud portal.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+            
+            {/* PORTAL 1: POS for Bar & Restaurant */}
+            <div className="lg:col-span-5 rounded-2xl border-2 border-amber-300 bg-gradient-to-b from-amber-50/50 via-white to-white p-6 sm:p-7 flex flex-col justify-between shadow-xs hover:shadow-md transition-shadow">
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-12 h-12 rounded-2xl bg-[#FFD21C] text-slate-950 flex items-center justify-center font-bold shadow-xs">
+                    <UtensilsCrossed className="w-6 h-6" />
+                  </div>
+                  <span className="text-[10px] font-black uppercase tracking-wider bg-amber-200 text-amber-950 px-3 py-1 rounded-full">
+                    Bar & Restaurant POS
+                  </span>
+                </div>
+
+                <h3 className="text-xl sm:text-2xl font-black text-slate-900 leading-tight">
+                  POS for Bar and Restaurant
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+                  Engineered specifically for busy hospitality counters: <strong>Bars, Lounges, Nightclubs, Fast Food, and Restaurants</strong>.
+                </p>
+
+                <div className="mt-5 space-y-2.5 text-xs text-slate-700 bg-white rounded-xl p-4 border border-amber-200">
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+                    <span><strong>Table & Tab Orders:</strong> Fire orders directly to kitchen & dispense printers.</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+                    <span><strong>Bar Dispense Control:</strong> Shots, bottles & cocktails auto-deducted per pour.</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+                    <span><strong>Split Bills & M-Pesa STK:</strong> Fast customer checkout at counter or table.</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+                    <span><strong>Cashier & Waiter Shifts:</strong> Zero discrepancy between cash and stock.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-6">
+                <a
+                  href={POS_BAR_RESTAURANT_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-[#073B8F] hover:bg-[#0067D9] text-white font-black text-xs sm:text-sm px-5 py-3.5 rounded-xl shadow-md transition-all cursor-pointer group"
+                >
+                  <span>Register Bar & Restaurant POS</span>
+                  <ExternalLink className="w-4 h-4 text-[#FFD21C] group-hover:translate-x-0.5 transition-transform" />
+                </a>
+                <div className="text-center mt-2 text-[11px] text-slate-400 font-mono">
+                  pos.lumina360.tech/auth/register
+                </div>
+              </div>
+            </div>
+
+            {/* PORTAL 2: Lumina ERP (All Other Businesses) */}
+            <div className="lg:col-span-7 rounded-2xl border-2 border-[#0067D9] bg-gradient-to-b from-blue-50/50 via-white to-white p-6 sm:p-7 flex flex-col justify-between shadow-xs hover:shadow-md transition-shadow">
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-12 h-12 rounded-2xl bg-[#0067D9] text-white flex items-center justify-center font-bold shadow-xs">
+                    <Building2 className="w-6 h-6" />
+                  </div>
+                  <span className="text-[10px] font-black uppercase tracking-wider bg-blue-100 text-[#0067D9] px-3 py-1 rounded-full">
+                    Universal ERP Suite
+                  </span>
+                </div>
+
+                <h3 className="text-xl sm:text-2xl font-black text-slate-900 leading-tight">
+                  Lumina360 ERP for Other Businesses
+                </h3>
+                <p className="text-xs sm:text-sm text-[#0067D9] font-bold mt-1">
+                  "We'll match the right modules to your business"
+                </p>
+                <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                  Turnkey operations software with pre-configured modules matching your exact business workflow:
+                </p>
+
+                {/* 15 Business Types Preset Grid */}
+                <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 max-h-56 overflow-y-auto pr-1 p-1">
+                  {ERP_BUSINESS_CATEGORIES.map((cat) => (
+                    <div
+                      key={cat.id}
+                      className="p-2.5 rounded-xl border border-slate-200 bg-white hover:border-[#0067D9] hover:bg-blue-50/40 transition-colors"
+                    >
+                      <div className="flex items-center justify-between gap-1">
+                        <span className="text-xs font-bold text-slate-900 truncate">
+                          {cat.name}
+                        </span>
+                        {cat.badge && (
+                          <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 shrink-0">
+                            {cat.badge}
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-[10px] text-slate-500 line-clamp-1 mt-0.5">
+                        {cat.description}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-3 text-xs text-slate-500 flex items-center justify-between">
+                  <span>✓ Plus custom manufacturing, logistics, and multi-branch operations.</span>
+                </div>
+              </div>
+
+              <div className="pt-6">
+                <a
+                  href={ERP_REGISTRATION_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-[#0067D9] hover:bg-[#073B8F] text-white font-black text-xs sm:text-sm px-5 py-3.5 rounded-xl shadow-md transition-all cursor-pointer group"
+                >
+                  <span>Register Lumina ERP (All Businesses)</span>
+                  <ExternalLink className="w-4 h-4 text-[#FFD21C] group-hover:translate-x-0.5 transition-transform" />
+                </a>
+                <div className="text-center mt-2 text-[11px] text-slate-400 font-mono">
+                  erp.lumina360.tech/register
+                </div>
+              </div>
+            </div>
+
+          </div>
+
         </div>
       </section>
 

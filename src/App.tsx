@@ -14,6 +14,7 @@ import { ThankYouPage } from './pages/ThankYouPage';
 // Modals
 import { LegalModal } from './components/modals/LegalModal';
 import { ContactModal } from './components/modals/ContactModal';
+import { RegisterChoiceModal } from './components/modals/RegisterChoiceModal';
 import { FloatingWhatsApp } from './components/common/FloatingWhatsApp';
 import { trackGTMPageView } from './utils/gtm';
 
@@ -79,6 +80,8 @@ export function App() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [modalDefaultService, setModalDefaultService] = useState<string>('POS & Business ERP Systems');
 
+  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
+
   // Handle browser back/forward buttons (popstate and hashchange)
   useEffect(() => {
     const handleUrlChange = () => {
@@ -126,14 +129,19 @@ export function App() {
     setIsLegalModalOpen(true);
   };
 
+  const handleOpenRegisterModal = () => {
+    setIsRegisterModalOpen(true);
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-[#F5F8FC] text-[#171A21] selection:bg-[#FFD21C] selection:text-slate-900">
       
-      {/* Header with Logo Color Accents */}
+      {/* Header with Logo Color Accents & Register Portal Trigger */}
       <Header
         activeSection={currentPage}
         onNavigate={handleNavigate}
         onOpenContactModal={handleOpenContactModal}
+        onOpenRegisterModal={handleOpenRegisterModal}
       />
 
       {/* Independent Dedicated Pages Container with Smooth Transitions */}
@@ -144,6 +152,7 @@ export function App() {
             <HomePage
               onNavigate={handleNavigate}
               onOpenContactModal={handleOpenContactModal}
+              onOpenRegisterModal={handleOpenRegisterModal}
             />
           )}
 
@@ -161,6 +170,7 @@ export function App() {
             <PosErpPage
               onOpenContactModal={handleOpenContactModal}
               onNavigate={handleNavigate}
+              onOpenRegisterModal={handleOpenRegisterModal}
             />
           )}
 
@@ -198,13 +208,19 @@ export function App() {
         </div>
       </main>
 
-      {/* Footer */}
+      {/* Footer with Registration Links */}
       <Footer
         onNavigate={handleNavigate}
         onOpenLegalModal={handleOpenLegalModal}
+        onOpenRegisterModal={handleOpenRegisterModal}
       />
 
       {/* Universal Modals */}
+      <RegisterChoiceModal
+        isOpen={isRegisterModalOpen}
+        onClose={() => setIsRegisterModalOpen(false)}
+      />
+
       <LegalModal
         isOpen={isLegalModalOpen}
         onClose={() => setIsLegalModalOpen(false)}

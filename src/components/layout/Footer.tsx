@@ -11,14 +11,21 @@ import {
 import { SOLUTIONS_DATA } from '../../data/solutionsData';
 import { INDUSTRIES_DATA } from '../../data/industriesData';
 
+import { 
+  POS_BAR_RESTAURANT_URL, 
+  ERP_REGISTRATION_URL 
+} from '../../data/registrationData';
+
 interface FooterProps {
   onNavigate: (sectionId: string, itemParam?: string) => void;
   onOpenLegalModal: (docType: 'privacy' | 'terms' | 'cookies') => void;
+  onOpenRegisterModal?: () => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({
   onNavigate,
   onOpenLegalModal,
+  onOpenRegisterModal,
 }) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -104,37 +111,59 @@ export const Footer: React.FC<FooterProps> = ({
           {/* Col 4: Navigation & Quick Links (2 cols) */}
           <div className="lg:col-span-2 space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-[#FFD21C]">
-              Company
+              Registration & Links
             </h4>
             <ul className="space-y-2 text-xs text-blue-100/90">
               <li>
+                <a 
+                  href={POS_BAR_RESTAURANT_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#FFD21C] hover:underline font-bold inline-flex items-center gap-1"
+                >
+                  <span>Register Bar & Restaurant POS</span>
+                  <span className="text-[10px]">↗</span>
+                </a>
+              </li>
+              <li>
+                <a 
+                  href={ERP_REGISTRATION_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:underline font-bold inline-flex items-center gap-1"
+                >
+                  <span>Register Lumina ERP</span>
+                  <span className="text-[10px]">↗</span>
+                </a>
+              </li>
+              {onOpenRegisterModal && (
+                <li>
+                  <button 
+                    onClick={onOpenRegisterModal} 
+                    className="hover:text-[#FFD21C] text-left cursor-pointer underline text-[11px] text-blue-200"
+                  >
+                    Match 15+ Business Modules
+                  </button>
+                </li>
+              )}
+              <li className="pt-1 border-t border-blue-800/60">
                 <button onClick={() => onNavigate('home')} className="hover:text-white cursor-pointer">
                   Home
                 </button>
               </li>
               <li>
-                <button onClick={() => onNavigate('solutions')} className="hover:text-white cursor-pointer">
-                  Solutions Catalog
-                </button>
-              </li>
-              <li>
                 <button onClick={() => onNavigate('pos-erp')} className="hover:text-white cursor-pointer">
-                  POS & ERP Terminal
-                </button>
-              </li>
-              <li>
-                <button onClick={() => onNavigate('industries')} className="hover:text-white cursor-pointer">
-                  Target Industries
+                  POS & ERP Hub
                 </button>
               </li>
               <li>
                 <button onClick={() => onNavigate('pricing')} className="hover:text-white cursor-pointer">
-                  Proposals & Pricing
+                  Pricing Calculator
                 </button>
               </li>
               <li>
                 <button onClick={() => onNavigate('contact')} className="hover:text-white cursor-pointer">
-                  Contact & WhatsApp
+                  Contact Engineering
                 </button>
               </li>
             </ul>

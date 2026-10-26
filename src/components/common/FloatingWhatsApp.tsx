@@ -29,6 +29,24 @@ export const FloatingWhatsApp: React.FC = () => {
     return () => clearTimeout(timer);
   }, [userInteracted]);
 
+  // Auto-close widget after 5 seconds of being open unless user is actively typing
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const hasTypedContent = 
+      quoteForm.businessName.trim().length > 0 || 
+      quoteForm.requirements.trim().length > 0 || 
+      quickMessage.trim().length > 0;
+
+    if (hasTypedContent) return;
+
+    const autoCloseTimer = setTimeout(() => {
+      setIsOpen(false);
+    }, 5000);
+
+    return () => clearTimeout(autoCloseTimer);
+  }, [isOpen, quoteForm.businessName, quoteForm.requirements, quickMessage]);
+
   const phoneNumber = '254741377463';
 
   // Handle Quote Submission via WhatsApp

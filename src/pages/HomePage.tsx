@@ -28,11 +28,13 @@ import { BrandLogoShowcase } from '../components/home/BrandLogoShowcase';
 interface HomePageProps {
   onNavigate: (page: string) => void;
   onOpenContactModal: (service?: string) => void;
+  onOpenRegisterModal?: () => void;
 }
 
 export const HomePage: React.FC<HomePageProps> = ({
   onNavigate,
   onOpenContactModal,
+  onOpenRegisterModal,
 }) => {
   // Moving slides state
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -184,22 +186,32 @@ export const HomePage: React.FC<HomePageProps> = ({
               </p>
 
               {/* Action Buttons in Logo Colors */}
-              <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
+              <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-2.5">
                 <button
                   onClick={() => onNavigate('pos-erp')}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#0067D9] hover:bg-[#072B6B] text-white font-black px-7 py-3.5 rounded-xl shadow-md hover:shadow-lg transition-all btn-interactive cursor-pointer text-xs sm:text-sm"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#0067D9] hover:bg-[#072B6B] text-white font-black px-6 py-3.5 rounded-xl shadow-md hover:shadow-lg transition-all btn-interactive cursor-pointer text-xs sm:text-sm"
                 >
                   <Store className="w-4 h-4 text-[#FFC700]" />
-                  <span>Explore POS & ERP Systems</span>
+                  <span>Explore POS & ERP</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
 
+                {onOpenRegisterModal && (
+                  <button
+                    onClick={onOpenRegisterModal}
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#FFC700] to-yellow-400 hover:from-yellow-400 hover:to-[#FFC700] text-slate-950 font-black px-5 py-3.5 rounded-xl shadow-xs transition-all btn-interactive cursor-pointer text-xs sm:text-sm border-2 border-yellow-200"
+                  >
+                    <Sparkles className="w-4 h-4 text-slate-950" />
+                    <span>Register / Sign Up</span>
+                  </button>
+                )}
+
                 <button
                   onClick={() => onOpenContactModal('POS & Business ERP Systems')}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#FFC700] hover:bg-yellow-400 text-slate-950 font-black px-6 py-3.5 rounded-xl shadow-xs transition-all btn-interactive cursor-pointer text-xs sm:text-sm"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold px-5 py-3.5 rounded-xl transition-all btn-interactive cursor-pointer text-xs sm:text-sm"
                 >
-                  <PhoneCall className="w-4 h-4" />
-                  <span>Get Free Quote</span>
+                  <PhoneCall className="w-4 h-4 text-[#0067D9]" />
+                  <span>Get Quote</span>
                 </button>
               </div>
 
