@@ -115,62 +115,7 @@ export const PosErpPage: React.FC<PosErpPageProps> = ({
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
             
-            {/* PORTAL 1: POS for Bar & Restaurant */}
-            <div className="lg:col-span-5 rounded-2xl border-2 border-amber-300 bg-gradient-to-b from-amber-50/50 via-white to-white p-6 sm:p-7 flex flex-col justify-between shadow-xs hover:shadow-md transition-shadow">
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-2xl bg-[#FFD21C] text-slate-950 flex items-center justify-center font-bold shadow-xs">
-                    <UtensilsCrossed className="w-6 h-6" />
-                  </div>
-                  <span className="text-[10px] font-black uppercase tracking-wider bg-amber-200 text-amber-950 px-3 py-1 rounded-full">
-                    Bar & Restaurant POS
-                  </span>
-                </div>
-
-                <h3 className="text-xl sm:text-2xl font-black text-slate-900 leading-tight">
-                  POS for Bar and Restaurant
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
-                  Engineered specifically for busy hospitality counters: <strong>Bars, Lounges, Nightclubs, Fast Food, and Restaurants</strong>.
-                </p>
-
-                <div className="mt-5 space-y-2.5 text-xs text-slate-700 bg-white rounded-xl p-4 border border-amber-200">
-                  <div className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
-                    <span><strong>Table & Tab Orders:</strong> Fire orders directly to kitchen & dispense printers.</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
-                    <span><strong>Bar Dispense Control:</strong> Shots, bottles & cocktails auto-deducted per pour.</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
-                    <span><strong>Split Bills & M-Pesa STK:</strong> Fast customer checkout at counter or table.</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
-                    <span><strong>Cashier & Waiter Shifts:</strong> Zero discrepancy between cash and stock.</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-6">
-                <a
-                  href={POS_BAR_RESTAURANT_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 bg-[#073B8F] hover:bg-[#0067D9] text-white font-black text-xs sm:text-sm px-5 py-3.5 rounded-xl shadow-md transition-all cursor-pointer group"
-                >
-                  <span>Register Bar & Restaurant POS</span>
-                  <ExternalLink className="w-4 h-4 text-[#FFD21C] group-hover:translate-x-0.5 transition-transform" />
-                </a>
-                <div className="text-center mt-2 text-[11px] text-slate-400 font-mono">
-                  pos.lumina360.tech/auth/register
-                </div>
-              </div>
-            </div>
-
-            {/* PORTAL 2: Lumina ERP (All Other Businesses) */}
+            {/* PORTAL 1: Lumina ERP (All Other Businesses) */}
             <div className="lg:col-span-7 rounded-2xl border-2 border-[#0067D9] bg-gradient-to-b from-blue-50/50 via-white to-white p-6 sm:p-7 flex flex-col justify-between shadow-xs hover:shadow-md transition-shadow">
               <div>
                 <div className="flex items-center justify-between mb-4">
@@ -233,6 +178,61 @@ export const PosErpPage: React.FC<PosErpPageProps> = ({
                 </a>
                 <div className="text-center mt-2 text-[11px] text-slate-400 font-mono">
                   erp.lumina360.tech/register
+                </div>
+              </div>
+            </div>
+
+            {/* PORTAL 2: POS for Bar & Restaurant */}
+            <div className="lg:col-span-5 rounded-2xl border-2 border-amber-300 bg-gradient-to-b from-amber-50/50 via-white to-white p-6 sm:p-7 flex flex-col justify-between shadow-xs hover:shadow-md transition-shadow">
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-12 h-12 rounded-2xl bg-[#FFD21C] text-slate-950 flex items-center justify-center font-bold shadow-xs">
+                    <UtensilsCrossed className="w-6 h-6" />
+                  </div>
+                  <span className="text-[10px] font-black uppercase tracking-wider bg-amber-200 text-amber-950 px-3 py-1 rounded-full">
+                    Bar & Restaurant POS
+                  </span>
+                </div>
+
+                <h3 className="text-xl sm:text-2xl font-black text-slate-900 leading-tight">
+                  POS for Bar and Restaurant
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+                  Engineered specifically for busy hospitality counters: <strong>Bars, Lounges, Nightclubs, Fast Food, and Restaurants</strong>.
+                </p>
+
+                <div className="mt-5 space-y-2.5 text-xs text-slate-700 bg-white rounded-xl p-4 border border-amber-200">
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+                    <span><strong>Table & Tab Orders:</strong> Fire orders directly to kitchen & dispense printers.</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+                    <span><strong>Bar Dispense Control:</strong> Shots, bottles & cocktails auto-deducted per pour.</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+                    <span><strong>Split Bills & M-Pesa STK:</strong> Fast customer checkout at counter or table.</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+                    <span><strong>Cashier & Waiter Shifts:</strong> Zero discrepancy between cash and stock.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-6">
+                <a
+                  href={POS_BAR_RESTAURANT_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-[#073B8F] hover:bg-[#0067D9] text-white font-black text-xs sm:text-sm px-5 py-3.5 rounded-xl shadow-md transition-all cursor-pointer group"
+                >
+                  <span>Register Bar & Restaurant POS</span>
+                  <ExternalLink className="w-4 h-4 text-[#FFD21C] group-hover:translate-x-0.5 transition-transform" />
+                </a>
+                <div className="text-center mt-2 text-[11px] text-slate-400 font-mono">
+                  pos.lumina360.tech/auth/register
                 </div>
               </div>
             </div>

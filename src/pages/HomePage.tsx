@@ -196,23 +196,23 @@ export const HomePage: React.FC<HomePageProps> = ({
                   <ArrowRight className="w-4 h-4" />
                 </button>
 
+                <button
+                  onClick={() => onOpenContactModal('POS & Business ERP Systems')}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#FFC700] hover:bg-yellow-400 text-slate-950 font-black px-6 py-3.5 rounded-xl shadow-xs transition-all btn-interactive cursor-pointer text-xs sm:text-sm"
+                >
+                  <PhoneCall className="w-4 h-4 text-slate-950" />
+                  <span>Get Quote</span>
+                </button>
+
                 {onOpenRegisterModal && (
                   <button
                     onClick={onOpenRegisterModal}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#FFC700] to-yellow-400 hover:from-yellow-400 hover:to-[#FFC700] text-slate-950 font-black px-5 py-3.5 rounded-xl shadow-xs transition-all btn-interactive cursor-pointer text-xs sm:text-sm border-2 border-yellow-200"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold px-5 py-3.5 rounded-xl transition-all btn-interactive cursor-pointer text-xs sm:text-sm border border-slate-300"
                   >
-                    <Sparkles className="w-4 h-4 text-slate-950" />
-                    <span>Register / Sign Up</span>
+                    <Sparkles className="w-4 h-4 text-[#0067D9]" />
+                    <span>Register Portal</span>
                   </button>
                 )}
-
-                <button
-                  onClick={() => onOpenContactModal('POS & Business ERP Systems')}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold px-5 py-3.5 rounded-xl transition-all btn-interactive cursor-pointer text-xs sm:text-sm"
-                >
-                  <PhoneCall className="w-4 h-4 text-[#0067D9]" />
-                  <span>Get Quote</span>
-                </button>
               </div>
 
               {/* Direct Value Badges in Brand Logo Colors */}

@@ -116,23 +116,23 @@ export const Footer: React.FC<FooterProps> = ({
             <ul className="space-y-2 text-xs text-blue-100/90">
               <li>
                 <a 
-                  href={POS_BAR_RESTAURANT_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#FFD21C] hover:underline font-bold inline-flex items-center gap-1"
-                >
-                  <span>Register Bar & Restaurant POS</span>
-                  <span className="text-[10px]">↗</span>
-                </a>
-              </li>
-              <li>
-                <a 
                   href={ERP_REGISTRATION_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white hover:underline font-bold inline-flex items-center gap-1"
                 >
                   <span>Register Lumina ERP</span>
+                  <span className="text-[10px]">↗</span>
+                </a>
+              </li>
+              <li>
+                <a 
+                  href={POS_BAR_RESTAURANT_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#FFD21C] hover:underline font-bold inline-flex items-center gap-1"
+                >
+                  <span>Register Bar & Restaurant POS</span>
                   <span className="text-[10px]">↗</span>
                 </a>
               </li>

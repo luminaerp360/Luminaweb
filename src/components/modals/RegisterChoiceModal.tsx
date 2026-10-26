@@ -26,7 +26,7 @@ interface RegisterChoiceModalProps {
 export const RegisterChoiceModal: React.FC<RegisterChoiceModalProps> = ({
   isOpen,
   onClose,
-  defaultTab = 'pos'
+  defaultTab = 'erp'
 }) => {
   const [mobileTab, setMobileTab] = useState<'pos' | 'erp'>(defaultTab);
   const [searchQuery, setSearchQuery] = useState('');
@@ -95,20 +95,9 @@ export const RegisterChoiceModal: React.FC<RegisterChoiceModalProps> = ({
           </button>
         </div>
 
-        {/* Mobile Segmented Tab Switcher (Visible on < lg screens) */}
+        {/* Mobile Segmented Tab Switcher: Lumina ERP is FIRST */}
         <div className="lg:hidden p-2.5 bg-slate-100 border-b border-slate-200 shrink-0">
           <div className="grid grid-cols-2 gap-1.5 p-1 bg-white rounded-xl border border-slate-200 shadow-2xs">
-            <button
-              onClick={() => setMobileTab('pos')}
-              className={`py-2 px-2.5 rounded-lg text-xs font-bold flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
-                mobileTab === 'pos'
-                  ? 'bg-amber-100 text-amber-950 shadow-xs border border-amber-300 font-black'
-                  : 'text-slate-600 hover:text-slate-900'
-              }`}
-            >
-              <UtensilsCrossed className="w-3.5 h-3.5 text-amber-600 shrink-0" />
-              <span className="truncate">Bar & Restaurant POS</span>
-            </button>
             <button
               onClick={() => setMobileTab('erp')}
               className={`py-2 px-2.5 rounded-lg text-xs font-bold flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
@@ -120,81 +109,27 @@ export const RegisterChoiceModal: React.FC<RegisterChoiceModalProps> = ({
               <Building2 className="w-3.5 h-3.5 text-[#FFD21C] shrink-0" />
               <span className="truncate">Lumina ERP</span>
             </button>
+            <button
+              onClick={() => setMobileTab('pos')}
+              className={`py-2 px-2.5 rounded-lg text-xs font-bold flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
+                mobileTab === 'pos'
+                  ? 'bg-amber-100 text-amber-950 shadow-xs border border-amber-300 font-black'
+                  : 'text-slate-600 hover:text-slate-900'
+              }`}
+            >
+              <UtensilsCrossed className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+              <span className="truncate">Bar & Restaurant POS</span>
+            </button>
           </div>
         </div>
 
         {/* Modal Scrollable Body */}
         <div className="p-3.5 sm:p-6 lg:p-8 overflow-y-auto space-y-4 sm:space-y-6">
           
-          {/* Main Grid: On desktop side-by-side; on mobile shows active tab */}
+          {/* Main Grid: Lumina ERP FIRST, Bar & Restaurant POS SECOND */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 items-stretch">
             
-            {/* OPTION 1: POS For Bar & Restaurant */}
-            <div className={`lg:col-span-5 rounded-2xl sm:rounded-3xl border-2 border-amber-300 bg-gradient-to-b from-amber-50/50 via-white to-white p-4 sm:p-6 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden ${
-              mobileTab === 'pos' ? 'block' : 'hidden lg:flex'
-            }`}>
-              <div className="absolute top-0 right-0 bg-[#FFD21C] text-slate-950 text-[9px] sm:text-[10px] font-black uppercase tracking-wider px-3 py-0.5 sm:py-1 rounded-bl-xl shadow-2xs">
-                Hospitality Specialized
-              </div>
-
-              <div>
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-[#FFD21C] text-slate-950 flex items-center justify-center font-bold shadow-xs shrink-0">
-                    <UtensilsCrossed className="w-5 h-5 sm:w-6 sm:h-6" />
-                  </div>
-                  <div>
-                    <h3 className="text-base sm:text-xl font-black text-slate-900 leading-snug">
-                      POS for Bar & Restaurant
-                    </h3>
-                    <p className="text-[11px] sm:text-xs text-amber-900 font-semibold">
-                      Fast Orders, Drinks & Kitchen Sync
-                    </p>
-                  </div>
-                </div>
-
-                <p className="text-xs text-slate-600 mb-3 sm:mb-4 leading-relaxed">
-                  Tailored workflow for <strong>Bars, Lounges, Nightclubs, Fine Dining, Fast Food & Cafés</strong>.
-                </p>
-
-                <div className="space-y-2 text-xs text-slate-700 bg-white/90 rounded-xl sm:rounded-2xl p-3 sm:p-4 border border-amber-200/80 mb-4">
-                  <div className="flex items-start gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" />
-                    <span><strong>Kitchen Order Tickets (KOT)</strong> sent straight to kitchen displays/printers.</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" />
-                    <span><strong>Waiter Mobile Ordering:</strong> Take orders tableside on tablets or phones.</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" />
-                    <span><strong>Bar Dispense Controls:</strong> Bottle, shot & recipe deduction with zero leakage.</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" />
-                    <span><strong>Instant Bill Splitting & M-Pesa STK:</strong> Fast customer checkout at counter or table.</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-2">
-                <a
-                  href={POS_BAR_RESTAURANT_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 bg-[#073B8F] hover:bg-[#0067D9] text-white font-black text-xs sm:text-sm px-4 py-3 sm:py-3.5 rounded-xl sm:rounded-2xl shadow-md transition-all duration-150 cursor-pointer group"
-                >
-                  <span>Register Bar & Restaurant POS</span>
-                  <ExternalLink className="w-3.5 h-3.5 text-[#FFD21C] group-hover:translate-x-0.5 transition-transform" />
-                </a>
-                <div className="text-center mt-1.5">
-                  <span className="text-[10px] sm:text-[11px] text-slate-400 font-mono">
-                    pos.lumina360.tech/auth/register
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* OPTION 2: Lumina ERP (All Other Businesses) */}
+            {/* OPTION 1 (FIRST): Lumina ERP (All Other Businesses) */}
             <div className={`lg:col-span-7 rounded-2xl sm:rounded-3xl border-2 border-[#0067D9] bg-gradient-to-b from-blue-50/50 via-white to-white p-4 sm:p-6 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden ${
               mobileTab === 'erp' ? 'block' : 'hidden lg:flex'
             }`}>
@@ -306,6 +241,71 @@ export const RegisterChoiceModal: React.FC<RegisterChoiceModalProps> = ({
                   <span className="text-slate-300 text-xs">·</span>
                   <span className="text-[10px] sm:text-[11px] text-emerald-600 font-bold">
                     Instant Setup
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* OPTION 2 (SECOND): POS For Bar & Restaurant */}
+            <div className={`lg:col-span-5 rounded-2xl sm:rounded-3xl border-2 border-amber-300 bg-gradient-to-b from-amber-50/50 via-white to-white p-4 sm:p-6 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden ${
+              mobileTab === 'pos' ? 'block' : 'hidden lg:flex'
+            }`}>
+              <div className="absolute top-0 right-0 bg-[#FFD21C] text-slate-950 text-[9px] sm:text-[10px] font-black uppercase tracking-wider px-3 py-0.5 sm:py-1 rounded-bl-xl shadow-2xs">
+                Hospitality Specialized
+              </div>
+
+              <div>
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-[#FFD21C] text-slate-950 flex items-center justify-center font-bold shadow-xs shrink-0">
+                    <UtensilsCrossed className="w-5 h-5 sm:w-6 sm:h-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-base sm:text-xl font-black text-slate-900 leading-snug">
+                      POS for Bar & Restaurant
+                    </h3>
+                    <p className="text-[11px] sm:text-xs text-amber-900 font-semibold">
+                      Fast Orders, Drinks & Kitchen Sync
+                    </p>
+                  </div>
+                </div>
+
+                <p className="text-xs text-slate-600 mb-3 sm:mb-4 leading-relaxed">
+                  Tailored workflow for <strong>Bars, Lounges, Nightclubs, Fine Dining, Fast Food & Cafés</strong>.
+                </p>
+
+                <div className="space-y-2 text-xs text-slate-700 bg-white/90 rounded-xl sm:rounded-2xl p-3 sm:p-4 border border-amber-200/80 mb-4">
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" />
+                    <span><strong>Kitchen Order Tickets (KOT)</strong> sent straight to kitchen displays/printers.</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" />
+                    <span><strong>Waiter Mobile Ordering:</strong> Take orders tableside on tablets or phones.</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" />
+                    <span><strong>Bar Dispense Controls:</strong> Bottle, shot & recipe deduction with zero leakage.</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" />
+                    <span><strong>Instant Bill Splitting & M-Pesa STK:</strong> Fast customer checkout at counter or table.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-2">
+                <a
+                  href={POS_BAR_RESTAURANT_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-[#073B8F] hover:bg-[#0067D9] text-white font-black text-xs sm:text-sm px-4 py-3 sm:py-3.5 rounded-xl sm:rounded-2xl shadow-md transition-all duration-150 cursor-pointer group"
+                >
+                  <span>Register Bar & Restaurant POS</span>
+                  <ExternalLink className="w-3.5 h-3.5 text-[#FFD21C] group-hover:translate-x-0.5 transition-transform" />
+                </a>
+                <div className="text-center mt-1.5">
+                  <span className="text-[10px] sm:text-[11px] text-slate-400 font-mono">
+                    pos.lumina360.tech/auth/register
                   </span>
                 </div>
               </div>

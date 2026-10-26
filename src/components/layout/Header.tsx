@@ -231,30 +231,7 @@ export const Header: React.FC<HeaderProps> = ({
                     </div>
 
                     <div className="space-y-1.5 mt-2">
-                      {/* Option 1: POS Bar & Restaurant */}
-                      <a
-                        href={POS_BAR_RESTAURANT_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2.5 rounded-xl border border-amber-200/80 bg-gradient-to-r from-amber-50/70 to-white hover:border-amber-400 hover:shadow-xs transition-all flex items-start gap-3 cursor-pointer group block"
-                      >
-                        <div className="p-2 rounded-lg bg-[#FFD21C] text-slate-950 font-bold shrink-0">
-                          <UtensilsCrossed className="w-4 h-4" />
-                        </div>
-                        <div className="min-w-0 flex-1">
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs font-black text-slate-900 group-hover:text-[#0067D9]">
-                              POS for Bar & Restaurant
-                            </span>
-                            <ExternalLink className="w-3 h-3 text-slate-400 group-hover:text-[#0067D9]" />
-                          </div>
-                          <p className="text-[11px] text-slate-500 line-clamp-1 mt-0.5">
-                            Kitchen orders, waiter tablets & bar counters
-                          </p>
-                        </div>
-                      </a>
-
-                      {/* Option 2: Lumina ERP */}
+                      {/* Option 1: Lumina ERP */}
                       <a
                         href={ERP_REGISTRATION_URL}
                         target="_blank"
@@ -273,6 +250,29 @@ export const Header: React.FC<HeaderProps> = ({
                           </div>
                           <p className="text-[11px] text-slate-500 line-clamp-1 mt-0.5">
                             We'll match the right modules to your business
+                          </p>
+                        </div>
+                      </a>
+
+                      {/* Option 2: POS Bar & Restaurant */}
+                      <a
+                        href={POS_BAR_RESTAURANT_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2.5 rounded-xl border border-amber-200/80 bg-gradient-to-r from-amber-50/70 to-white hover:border-amber-400 hover:shadow-xs transition-all flex items-start gap-3 cursor-pointer group block"
+                      >
+                        <div className="p-2 rounded-lg bg-[#FFD21C] text-slate-950 font-bold shrink-0">
+                          <UtensilsCrossed className="w-4 h-4" />
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-center justify-between">
+                            <span className="text-xs font-black text-slate-900 group-hover:text-[#0067D9]">
+                              POS for Bar & Restaurant
+                            </span>
+                            <ExternalLink className="w-3 h-3 text-slate-400 group-hover:text-[#0067D9]" />
+                          </div>
+                          <p className="text-[11px] text-slate-500 line-clamp-1 mt-0.5">
+                            Kitchen orders, waiter tablets & bar counters
                           </p>
                         </div>
                       </a>
@@ -295,20 +295,20 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
           </div>
 
-          {/* Mobile Actions Button Group */}
+          {/* Mobile Actions Button Group: Quote comes BEFORE Register */}
           <div className="flex items-center gap-1.5 lg:hidden">
             <button
+              onClick={() => onOpenContactModal()}
+              className="bg-blue-50 hover:bg-blue-100 text-[#073B8F] border border-blue-200 text-xs font-bold px-2.5 py-1.5 rounded-lg shadow-2xs transition-colors cursor-pointer"
+            >
+              Quote
+            </button>
+            <button
               onClick={onOpenRegisterModal}
-              className="bg-gradient-to-r from-[#0067D9] to-[#073B8F] text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-xs flex items-center gap-1 border border-[#FFD21C]/60"
+              className="bg-gradient-to-r from-[#0067D9] to-[#073B8F] text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-xs flex items-center gap-1 border border-[#FFD21C]/60 cursor-pointer"
             >
               <Sparkles className="w-3 h-3 text-[#FFD21C]" />
               <span>Register</span>
-            </button>
-            <button
-              onClick={() => onOpenContactModal()}
-              className="sm:hidden bg-slate-100 text-slate-800 text-xs font-semibold px-2.5 py-1.5 rounded-lg"
-            >
-              Quote
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -325,25 +325,13 @@ export const Header: React.FC<HeaderProps> = ({
       {mobileMenuOpen && (
         <div className="lg:hidden fixed inset-x-0 top-full bg-white border-b border-slate-200 shadow-2xl px-5 py-6 max-h-[85vh] overflow-y-auto">
           
-          {/* Quick Register Portal on Mobile */}
+          {/* Quick Register Portal on Mobile: Lumina ERP first */}
           <div className="bg-gradient-to-r from-blue-50 to-amber-50 rounded-2xl p-3.5 border border-blue-200/80 mb-4 space-y-2">
             <div className="text-[11px] font-black uppercase text-slate-700 flex items-center justify-between">
               <span>Direct System Registration</span>
               <span className="text-emerald-600 font-bold bg-emerald-50 px-2 py-0.5 rounded-md text-[10px]">Instant</span>
             </div>
             <div className="grid grid-cols-1 gap-2">
-              <a
-                href={POS_BAR_RESTAURANT_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-between bg-white p-2.5 rounded-xl border border-amber-300 text-xs font-bold text-slate-900 shadow-2xs"
-              >
-                <span className="flex items-center gap-2">
-                  <UtensilsCrossed className="w-4 h-4 text-amber-600" />
-                  <span>POS for Bar & Restaurant</span>
-                </span>
-                <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
-              </a>
               <a
                 href={ERP_REGISTRATION_URL}
                 target="_blank"
@@ -353,6 +341,18 @@ export const Header: React.FC<HeaderProps> = ({
                 <span className="flex items-center gap-2">
                   <Building2 className="w-4 h-4 text-[#0067D9]" />
                   <span>Lumina ERP (All Businesses)</span>
+                </span>
+                <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
+              </a>
+              <a
+                href={POS_BAR_RESTAURANT_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between bg-white p-2.5 rounded-xl border border-amber-300 text-xs font-bold text-slate-900 shadow-2xs"
+              >
+                <span className="flex items-center gap-2">
+                  <UtensilsCrossed className="w-4 h-4 text-amber-600" />
+                  <span>POS for Bar & Restaurant</span>
                 </span>
                 <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
               </a>
